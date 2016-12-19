@@ -11,10 +11,10 @@ ob_start(); // Kill output buffering;
  *
  * */
 
-define(CANONICAL_URL, "http://www.shellybrown.com/stack/");
-define(CANONICAL_REDIRECT_URL, "http://www.shellybrown.com/ss/ref=");
-define(COOKIE_NAME_READ, "com_shellybrown");
-define(COOKIE_NAME_WRITE, "com.shellybrown");
+define('CANONICAL_URL', "http://www.shellybrown.com/stack/");
+define('CANONICAL_REDIRECT_URL', "http://www.shellybrown.com/ss/ref=");
+define('COOKIE_NAME_READ', "com_shellybrown");
+define('COOKIE_NAME_WRITE', "com.shellybrown");
 
 $skus = explode("_", urldecode($_GET['skus'] ?: "")); // Array.
 
@@ -29,14 +29,20 @@ ob_end_flush(); // Resume output buffering;
 ?>
 <htm>
     <header>
-        <meta property="og:title" content="Check out my stack!"/>
+        <meta property="og:title" content="Check out my dream bracelet combo"/>
         <meta property="og:type" content="product.group"/>
         <meta property="og:image" content="http://www.shellybrown.com/img/stack-share.jpg"/>
         <meta property="og:image:type" content="image/jpeg"/>
         <meta property="og:image:width" content="1200"/>
         <meta property="og:image:height" content="630"/>
         <meta property="og:site_name" content="Shelly Brown"/>
-        <meta property="og:description" content="I've created a stack of bracelets on Shelly Brown's website!"/>
+        <meta property="og:description" content="I just built a Shelly Brown stack, and it’s A-MAZ-ING!"/>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@shellybrown" />
+        <meta name="twitter:title" content="Check out my dream bracelet combo" />
+        <meta name="twitter:description" content="I just built a Shelly Brown stack, and it’s A-MAZ-ING!" />
+        <meta name="twitter:image" content="http://www.shellybrown.com/img/stack-share.jpg" />
+        <!-- http://www.shellybrown.com/ss/ref=SB-B8SOJ_SB-B8BOR_SB-B8BOP -->
     </header>
     <body>
 
@@ -45,7 +51,7 @@ ob_end_flush(); // Resume output buffering;
     </noscript>
 
     <script>
-        window.location = "<?=CANONICAL_URL?>";
+        window.location = "<?= CANONICAL_URL ?>";
     </script>
 
     </body>
