@@ -111,15 +111,7 @@ if($action === ACTION_INVENTORY ||
             try {
                 $result = $proxy->catalogProductInfo($sessionId, (string) $productID);
 
-                $saleItem = false;
-                foreach($result->categories as $value){
-                    if($value === '74'){
-                        $saleItem = true;
-                        break;
-                    }
-                }
-
-                $response = array('error'=>0, 'message'=>"Product Price", 'data'=>array('product_id'=>$result->product_id, 'price'=>$result->price, 'on_sale'=>$saleItem ? 1 : 0));
+                $response = array('error'=>0, 'message'=>"Product Price", 'data'=>array('product_id'=>$result->product_id, 'price'=>$result->price, 'categories' => $result->categories));
 
             } catch (SoapFault $fault) {
                 $response = array('error'=>999, 'message'=>"Invalid SKU ($productID). Code: $fault->faultcode, String: $fault->faultstring");
